@@ -126,7 +126,7 @@ $(document).ready(function () {
 
 <p>To parse dates we’re going to use lubridate, dplyr to parse data, and to plot some graphs ggplot2</p>
 <pre class="r"><code>library(knitr)
-opts_chunk$set(echo = TRUE, results = 'hold')
+opts_chunk$set(echo = TRUE, results = 'asis')
 library(data.table)
 library(ggplot2) </code></pre>
 <p>Reading the data and preprocessing it</p>
@@ -176,8 +176,7 @@ rdata_fill &lt;- data.frame(
         interval = activity_data$interval)</code></pre>
 <p>Check if there are anymore missing values in the dataset</p>
 <pre class="r"><code>sum(is.na(rdata_fill$steps))</code></pre>
-<pre><code>## [1] 0</code></pre>
-<p>Histogram of the total number of steps taken each day after missing values are imputed</p>
+<p>[1] 0 Histogram of the total number of steps taken each day after missing values are imputed</p>
 <pre class="r"><code>fill_steps_per_day &lt;- aggregate(steps ~ date, rdata_fill, sum)
 colnames(fill_steps_per_day) &lt;- c(&quot;date&quot;,&quot;steps&quot;)
 
